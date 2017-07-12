@@ -1,7 +1,6 @@
 class FiguresController < ApplicationController
 
   get '/figures' do
-    binding.pry
     @figures = Figure.all
     erb :'/figures/index'
   end
@@ -11,7 +10,6 @@ class FiguresController < ApplicationController
   end
 
   get '/figures/:id' do
-    binding.pry
     @figure = Figure.find(params[:id])
     erb :'/figures/show'
   end
@@ -32,6 +30,11 @@ class FiguresController < ApplicationController
     end
     @figure.save
     redirect to "figures/#{@figure.id}"
+  end
+
+  get '/figures/:id/edit' do
+    @figure = Figure.find(params[:id])
+    erb :'/figures/edit'
   end
 
 end
