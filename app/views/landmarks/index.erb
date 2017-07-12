@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Landmarks List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Landmarks </h1>
+  <% if @landmarks.size > 0%>
+    <ul>
+      <% @landmarks.each do |landmark| %>
+         <li><a href="/landmarks/<%=landmark.id%>"><%=landmark.name%></a></li>
+         <li><a href="/landmarks/<%=landmark.id%>"><%=landmark.year_completed%></a></li>
+      <% end %>
+    </ul>
+  <%else%>
+  <h2>There are no landmarks to display!</h2>
+  <%end%>
+
+ </body>
+</html>

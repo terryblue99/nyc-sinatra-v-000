@@ -28,13 +28,11 @@ class FiguresController < ApplicationController
       binding.pry
       @figure.landmark = Landmark.find_by_id(params[:figure][:landmark_id])
     end
-    binding.pry
     @figure.save
     redirect to "figures/#{@figure.id}"
   end
 
   get '/figures/:id/edit' do
-    binding.pry
     @figure = Figure.find(params[:id])
     erb :'/figures/edit'
   end
@@ -54,7 +52,6 @@ class FiguresController < ApplicationController
       binding.pry
       @figure.landmark = Landmark.find_by_id(params[:figure][:landmark_id])
     end
-    binding.pry
     @figure.save
     redirect to "figures/#{@figure.id}"
   end
