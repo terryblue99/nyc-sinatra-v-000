@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title>Figures List</title>
+  <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+ </head>
+ <body>
+  <h1> Figures </h1>
+  <% if @figures.size > 0%>
+    <ul>
+      <% @figures.each do |figure| %>
+         <li><a href="/figures/<%=figure.id%>"><%=figure.name%></a></li>
+      <% end %>
+    </ul>
+  <%else%>
+  <h2>There are no figures to display!</h2>
+  <%end%>
+
+ </body>
+</html>
