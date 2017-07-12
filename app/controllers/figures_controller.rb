@@ -16,13 +16,14 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(params[:figure])
-    if params[:title].size > 0
+    binding.pry
+    if params[:title][0] != nil
       @figure.titles << Title.create(params[:title])
     else
       binding.pry
-      @figure.titles << Title.find_by_id(params[:figure][:title_id])
+      @figure.titles << Title.find_by_id(params[:figure][:title_ids][0])
     end
-    if params[:landmark].size > 0
+    if params[:landmark][0] != nil
       @figure.landmarks << Landmark.create(params[:landmark])
     else
       binding.pry
@@ -40,13 +41,14 @@ class FiguresController < ApplicationController
   post '/figures/:id' do
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
-    if params[:title].size > 0
+    binding.pry
+    if params[:title][0] != nil
       @figure.titles << Title.create(params[:title])
     else
       binding.pry
-      @figure.titles << Title.find_by_id(params[:figure][:title_id])
+      @figure.titles << Title.find_by_id(params[:figure][:title_ids][0])
     end
-    if params[:landmark].size > 0
+    if params[:landmark][0] != nil
       @figure.landmarks << Landmark.create(params[:landmark])
     else
       binding.pry
