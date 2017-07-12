@@ -16,6 +16,7 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(params[:figure])
+    binding.pry
     if params[:title][:name].size > 0
       @figure.titles << Title.create(params[:title])
     else
@@ -42,6 +43,7 @@ class FiguresController < ApplicationController
   post '/figures/:id' do
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
+    binding.pry
     if params[:title][:name].size > 0
       @figure.titles << Title.create(params[:title])
     else
