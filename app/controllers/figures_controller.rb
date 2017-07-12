@@ -16,7 +16,6 @@ class FiguresController < ApplicationController
 
   post '/figures' do
     @figure = Figure.create(params[:figure])
-    binding.pry
     if params[:title][:name].size > 0
       @figure.titles << Title.create(params[:title])
     else
@@ -43,22 +42,6 @@ class FiguresController < ApplicationController
   post '/figures/:id' do
     @figure = Figure.find(params[:id])
     @figure.update(params[:figure])
-    binding.pry
-    if params[:title][:name].size > 0
-      @figure.titles << Title.create(params[:title])
-    else
-      if params[:figure][:title_ids] != nil
-        @figure.titles << Title.find_by_id(params[:figure][:title_ids][0])
-      end
-    end
-    if params[:landmark][:name].size > 0
-      @figure.landmarks << Landmark.create(params[:landmark])
-    else
-      if params[:figure][:landmark_ids] != nil
-        @figure.landmarks << Landmark.find_by_id(params[:figure][:landmark_ids][0])
-      end
-    end
-    @figure.save
     redirect to "figures/#{@figure.id}"
   end
 
