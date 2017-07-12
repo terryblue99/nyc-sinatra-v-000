@@ -10,11 +10,11 @@
     <form action="/landmarks/<%=@landmark.id%>" method="POST">
         <label>Landmark Name:</label>
         <br></br>
-        <input type="text" name="landmark[name]" id="landmark_name" value="<%=@landmark.name%>">
+        <input type="text" name="landmark[name]" id="name" value="<%=@landmark.name%>">
         <br></br>
         <label>Year Completed:</label>
         <br></br>
-        <input type="text" name="landmark[year_completed]" id="landmark_year_completed" value="<%=@landmark.year_completed%>">
+        <input type="text" name="landmark[year_completed]" id="year_completed" value="<%=@landmark.year_completed%>">
         <br></br>
         <input type="submit" value="Edit Landmark">
     </form>
